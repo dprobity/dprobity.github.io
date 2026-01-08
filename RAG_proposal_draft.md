@@ -41,7 +41,7 @@ class AgentState(TypedDict):
 
 
 
-Hybrid Retrieval Engine
+## Hybrid Retrieval Engine
 Unlike standard RAG, this system uses a Query Planner to traverse the Neo4j Graph Database for relational truths (e.g., matching specific past performance to geographic targets) while using the Vector Store for semantic nuance.
 
 4. Monitoring & Evaluation (M&E)
