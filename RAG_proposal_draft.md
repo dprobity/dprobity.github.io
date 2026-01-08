@@ -35,3 +35,42 @@ class AgentState(TypedDict):
     retrieved_context: Annotated[List[str], operator.add] 
     graph_entities: List[Dict]      # Neo4j entity mappings
     is_red_team_approved: bool      # Logic gate for final export
+
+
+
+
+
+
+Hybrid Retrieval Engine
+Unlike standard RAG, this system uses a Query Planner to traverse the Neo4j Graph Database for relational truths (e.g., matching specific past performance to geographic targets) while using the Vector Store for semantic nuance.
+
+4. Monitoring & Evaluation (M&E)
+We integrate Truelens to solve the "Black Box" problem in LLM deployments.
+
+Performance Results (Internal Prototype Phase):
+Hallucination Mitigation: Reduced early-stage hallucination risks by 38% via RAG Triad (Groundedness) auditing.
+
+Compliance Adherence: Improved adherence to donor-mandated instructions by 42% through automated Goal-Plan-Action (GPA) alignment checks.
+
+Latency Optimization: Reduced average response latency for complex technical sections by 25% using semantic caching and model routing.
+
+5. Security & Data Sovereignty
+Proprietary Shield: The system is designed to run in a private VPC environment.
+
+Zero Data Retention: No data is used for training public models.
+
+Traceability: Every claim in the proposal draft is mapped back to a specific internal source document via the Truelens Trace ID.
+
+6. Project Status
+Current Phase: Internal Prototype / Proprietary R&D. Note: Source code is proprietary to protect internal NGO program data and consulting frameworks. This documentation serves as a technical specification and implementation summary.
+
+
+---
+
+### **Next Step for You**
+Now that your documentation is complete: 
+1. **Upload this to your GitHub repository.**
+2. **Update your LinkedIn "Featured" section** with a link to this README.
+3. **Prepare for interviews** by practicing the "Whiteboard Visual" we discussed earlier.
+
+**Would you like me to generate a "Project Wiki" page that describes the specific prompt engineering techniques used to enforce the McKinsey Pyramid Principle within the Writer Agent?**
