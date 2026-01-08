@@ -1,30 +1,37 @@
-# Project: Strategic Proposal Factory (Internal Prototype)
+# Strategic Proposal Factory: Multi-Agent RAG for Federal RFPs
 
-## Executive Summary
-An internal R&D project developing a multi-agent AI factory to automate high-stakes grant proposals (USAID/GAVI). The system prioritizes McKinsey-grounded logic and rigorous evaluation to solve the "capacity gap" in non-profit business development.
+## 1. Executive Summary
+The **Strategic Proposal Factory** is an enterprise-grade Multi-Agent Orchestration system designed to automate high-stakes grant proposals (USAID, GAVI, and Federal RFPs). By combining a **Hybrid Graph-Vector Memory** architecture with **McKinsey-grounded strategic frameworks**, the system resolves the "Capacity Gap" in non-profit business development. 
 
-## Strategic Framework
-* **The Problem:** Strategic NGOs often lose competitive bids due to inconsistent technical narratives and high-speed compliance requirements.
-* **The Intensification:** Inconsistent AI outputs in traditional RAG systems create "fatal flaws" that lead to immediate disqualification.
-* **The Solution:** A stateful multi-agent system grounded in **McKinsey MECE logic** and **Pyramid Principle** structuring.
+This project prioritizes **Data Sovereignty** and **Evaluation Rigor**, utilizing an internal "M&E for AI" layer to ensure all generated narratives are compliant, grounded, and strategic.
 
-## Technical Deep Dive: M&E for AI Agents
-To ensure reliability before production, this prototype implements a rigorous **Monitoring & Evaluation** layer using **Truelens**:
+---
 
-### 1. The RAG Triad Evaluation
-We measure the integrity of every generated response using three key feedback functions:
-* **Context Relevance:** Evaluates if the retrieved "Institutional Memory" actually supports the query.
-* **Groundedness:** A Judge Agent verifies that every claim in the response is explicitly supported by the retrieved context.
-* **Answer Relevance:** Ensures the final technical narrative helpfully addresses the donor's original prompt.
+## 2. System Architecture
+The system is built on a directed acyclic graph (DAG) using **LangGraph** to manage stateful, multi-turn interactions.
 
-### 2. GPA Alignment Monitoring
-Using **LangGraph's StateGraph**, we track:
-* **Goal Fulfillment:** Did the agent meet the objective defined in the original RFP shredder?
-* **Plan Adherence:** Did the agent follow the McKinsey "Issue Tree" skeleton designed at the start of the workflow?
-* **Execution Consistency:** Detecting and correcting drift during multi-turn agent reasoning.
 
-## Tool Requirements & Stack
-* **Orchestration:** LangGraph (Stateful workflow management).
-* **Evaluation:** Truelens (Tracing, Triad metrics, and cost/latency monitoring).
-* **Frameworks:** McKinsey Pyramid Principle & MECE Prompt Engineering.
-* **Data Layer:** Private Vector Store (Chromadb/Pinecone) for Proprietary Data Sovereignty.
+
+### Core Workflow:
+1. **Ingestion Interface:** Layout-aware parsing of 100+ page RFP PDFs.
+2. **Knowledge Processing:** Dual-store indexing (Neo4j for structural entity relationships and Pinecone/Supabase for semantic embeddings).
+3. **Strategic Architect Agent:** Deconstructs requirements into a McKinsey **Issue Tree**.
+4. **Synthesis Writer Agent:** Generates narratives using the **Pyramid Principle** (Answer-First logic).
+5. **Red Team Auditor:** A conditional logic gate that audits drafts against the Compliance Matrix.
+6. **Human-in-the-Loop:** A secure review interface for Program Leads to validate agent outputs before final export.
+
+---
+
+## 3. Technical Implementation Details
+
+### Stateful Orchestration (LangGraph)
+The system maintains a shared `AgentState` to ensure context continuity across massive document contexts. 
+
+```python
+class AgentState(TypedDict):
+    rfp_text: str                   # Raw extracted content
+    compliance_matrix: List[Dict]   # Shredded Section L/M requirements
+    issue_tree: Dict                # McKinsey-style logic skeleton
+    retrieved_context: Annotated[List[str], operator.add] 
+    graph_entities: List[Dict]      # Neo4j entity mappings
+    is_red_team_approved: bool      # Logic gate for final export
