@@ -65,12 +65,3 @@ Traceability: Every claim in the proposal draft is mapped back to a specific int
 Current Phase: Internal Prototype / Proprietary R&D. Note: Source code is proprietary to protect internal NGO program data and consulting frameworks. This documentation serves as a technical specification and implementation summary.
 
 
----
-
-### **Next Step for You**
-Now that your documentation is complete: 
-1. **Upload this to your GitHub repository.**
-2. **Update your LinkedIn "Featured" section** with a link to this README.
-3. **Prepare for interviews** by practicing the "Whiteboard Visual" we discussed earlier.
-
-**Would you like me to generate a "Project Wiki" page that describes the specific prompt engineering techniques used to enforce the McKinsey Pyramid Principle within the Writer Agent?**
